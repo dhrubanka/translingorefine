@@ -1,10 +1,10 @@
 /* popup-styles.css */
-.body3 {
+.body-popup {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
 }
 
-.container {
+.container-popup {
   max-width: 350px;
   margin: 0 auto;
   background-color: #f8f8f8;

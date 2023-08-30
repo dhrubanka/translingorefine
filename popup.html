@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TransLingo Refine Extension</title>
+  <link rel="stylesheet" href="popup-styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-header">TransLingo Refine</h1>
+    
+    <a href="setup.html" target="_blank" class="setup-link">Go to Setup Page</a>
+
+    <div class="form-section">
+      <input type="text" id="newTargetWord" placeholder="Enter target word" class="input-field">
+      <br>
+      <input type="text" id="newReplacementWord" placeholder="Enter replacement word" class="input-field">
+      <button id="addReplacementButton" class="add-button">Add</button>
+    </div>
+
+    <h2 class="sub-header">Your Current Word Replacements</h2>
+    <ul class="word-list" id="replacementList"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

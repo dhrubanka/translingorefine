@@ -1,0 +1,26 @@
+<!-- setup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TransLingo Refine Setup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="main-header">TransLingo Refine Setup</h2>
+    <form id="setupForm">
+      <div class="input-group">
+        <input type="text" placeholder="Target word" class="targetWord">
+        <input type="text" placeholder="Replacement word" class="replacementWord">
+        <button type="button" class="add-button">+</button>
+      </div>
+      <button type="submit" class="save-button">Save Replacements</button>
+    </form>
+     
+    <button class="apply-predefined">Apply The Understated Dominance Characters</button>
+ 
+    <div class="word-list" id="replacementList"></div>
+  </div>
+  <script src="setup.js"></script>
+</body>
+</html>

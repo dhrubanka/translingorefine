@@ -63,14 +63,29 @@ document.addEventListener("DOMContentLoaded", async function () {
       replacements.forEach(function (rep, index) {
         const listItem = document.createElement("div");
         listItem.classList.add("word-item");
-        listItem.innerHTML = `
-          <div class="word-text">${rep.target} -> ${rep.replacement}</div>
-          <button data-index="${index}" class="remove-button">Remove</button>
-        `;
-        replacementList.appendChild(listItem);
+    
+        // Create elements for the content
+        const wordText = document.createElement("div");
+        wordText.classList.add("word-text");
+        wordText.textContent = `${rep.target} -> ${rep.replacement}`;
+    
+        const removeButton = document.createElement("button");
+        removeButton.dataset.index = index;
+        removeButton.classList.add("remove-button");
+        removeButton.textContent = "Remove";
+    
+        // Append the content elements to the listItem
+        listItem.appendChild(wordText);
+        listItem.appendChild(removeButton);
+    
+        // Add a click event listener to the removeButton
         initializeRemoveButton(listItem, index);
+    
+        // Append the listItem to the replacementList
+        replacementList.appendChild(listItem);
       });
     }
+    
   
     async function initializeMinusButton(inputGroup) {
       const minusButton = inputGroup.querySelector(".minus-button");
@@ -97,22 +112,41 @@ document.addEventListener("DOMContentLoaded", async function () {
     async function applyUnderstatedDominanceCharacters() {
         // Predefined list: The Understated Dominance Characters
         const understatedDominanceCharactersList = [
-            { target: "Li Qing Yao", replacement: "Dahlia" },
-            { target: "Lu Chen", replacement: "Dustin" },
-            { target: "Cao Xuan", replacement: "Natasha" },
+            { target: "Li Qing yao", replacement: "Dahlia" },
+            { target: "Zhang Cuihua", replacement: "Florence Franklin" },
+            { target: "Tan Hong", replacement: "Julie Amberson" },
+            { target: "Lu Chen", replacement: "Dustin Rhys" },
+            { target: "Lu Changge", replacement: "Logan Rhys" },
+            { target: "Cao Xuan", replacement: "Natasha Harmon" },
+            { target: "Cao Xuanfei", replacement: "Natasha Harmon" },
+            { target: "Cao Anan", replacement: "Ruth Harmon" },
+            { target: "Cao Guan", replacement: "Hector Harmon" },
             { target: "Xiao Hongye", replacement: "Azalea" },
             { target: "Hong Niu", replacement: "Nelson" },
             { target: "Lao Zhang", replacement: "Cornelius" },
             { target: "Lei Wanju", replacement: "Ronald Reeds" },
             { target: "Jiang Baihe", replacement: "Gavin Killian" },
             { target: "Jiang Chengde", replacement: "Charless Killian" },
-            { target: "Huang Fu Longten", replacement: "Paul Hill" },
-            { target: "Huangfu Chun", replacement: "Spring Hill" },
-            { target: "Huangfu Xiong", replacement: "Torben Hill" },
-            { target: "Huang Fu Qiu", replacement: "Autumn Hill" },
             { target: "Huang Yin Yin", replacement: "Abigail" },
             { target: "Zhou", replacement: "Derek Lester" },
-            { target: "Bao'er", replacement: "Hailey" }
+            { target: "Bao'er", replacement: "Hailey" },
+            { target: "Hong Qingxia", replacement: "Nikki Horst" },
+            { target: "Venerable Ziyang", replacement: "Terry Doyle’s Master" },
+            { target: "Bai Xiu", replacement: "Edith" },
+            { target: "Dong Tianbao", replacement: "Terry Doyle" },
+            { target: "Jiangnan", replacement: "Balerno" },
+            { target: "Lei", replacement: "Ronald Reeds" },
+            { target: "Su Hongtu", replacement: "Conrad" },
+            { target: "Tianbang", replacement: "Heavenly Ranking" },
+            { target: "Huangfu", replacement: "Hill" },
+            { target: "Huangfu Longteng", replacement: "Paul Hill" },
+            { target: "Huangfu Chun", replacement: "Spring Hill" },
+            { target: "Huangfu Xia", replacement: "Summer Hill" },
+            { target: "Huangfu Qiu", replacement: "Autumn Hill" },
+            { target: "Huangfu Dong", replacement: "Winter Hill" },
+            { target: "Huangfu Jie", replacement: "Patrick Hill" },
+            { target: "Huangfu Xiong", replacement: "Torben Hill" },
+            { target: "Huangfu Qingtian", replacement: "Jonas Hill" },
           ];
           
           const existingWordReplacements = await browser.storage.local.get("wordReplacements");
